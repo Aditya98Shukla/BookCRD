@@ -171,3 +171,13 @@ Writing kustomize manifests for you to edit...
 .......
 ```
 - The Above command generates various files, including the CRD definition, controller, and API type definition.
+
+- Implement your new API and generate the manifests (e.g. CRDs,CRs) with:
+```
+controlplane BookCRD on  main [⇡] via 🐹 v1.18 ➜  make manifests
+```
+- You will notice that a CRD YAML is created at the location 'config/crd/bases' and its name is 'comp.genesis.xyz.com_books.yaml'.
+```
+controlplane BookCRD on  main [?] via 🐹 v1.18 ➜  ls config/crd/bases
+comp.genesis.xyz.com_books.yaml
+```
