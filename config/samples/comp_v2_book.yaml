@@ -1,0 +1,6 @@
+apiVersion: comp.genesis.xyz.com/v2
+kind: Book
+metadata:
+  name: book-sample
+spec:
+  # TODO(user): Add fields here

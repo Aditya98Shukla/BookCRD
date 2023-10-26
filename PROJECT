@@ -3,4 +3,14 @@ layout:
 - go.kubebuilder.io/v3
 projectName: bookcrd
 repo: github.com/Aditya98Shukla/BookCRD
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: genesis.xyz.com
+  group: comp
+  kind: Book
+  path: github.com/Aditya98Shukla/BookCRD/api/v2
+  version: v2
 version: "3"

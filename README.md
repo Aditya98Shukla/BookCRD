@@ -157,3 +157,17 @@ controlplane CRD on  main [!?] via 🐹 v1.18 ➜  kubebuilder version
 main.version{KubeBuilderVersion:"3.4.0", KubernetesVendor:"1.23.5", GitCommit:"75241ab9ff9457de77e902645792cee41ba29fed", BuildDate:"2022-04-28T17:09:31Z", GoOs:"linux", GoArch:"amd64"}
 ```
 - You will notice the changes after applying 'git status'. Move these changes to staging area using 'git add .' and then commit. Later Push the committed changes.
+
+## Creating CRD, Custom Resource and Custom Controller
+
+- In this step, create a new API for the custom resource. We'll create an API named Book in the compute group and version v2.
+```
+controlplane BookCRD on  main [!?] via 🐹 v1.18 ➜  kubebuilder create api --group comp --version v2 --kind Book
+Create Resource [y/n]
+y
+Create Controller [y/n]
+y
+Writing kustomize manifests for you to edit...
+.......
+```
+- The Above command generates various files, including the CRD definition, controller, and API type definition.
