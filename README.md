@@ -117,3 +117,43 @@ controlplane CRD on  master via 🐹 v1.18 ➜ git branch -M main
 - Push the Main branch to Remote Repo. Make Sure you have mention Gihub USERNAME and Personal Access Token as Password.
 ```
 controlplane CRD on  master via 🐹 v1.18 ➜  git push -u origin main
+```
+## Initializing Kubernetes Project
+- Clone the Repository
+```
+controlplane ~ ➜  git clone https://github.com/Aditya98Shukla/BookCRD.git
+Cloning into 'BookCRD'...
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 5 (delta 0), reused 5 (delta 0), pack-reused 0
+Unpacking objects: 100% (5/5), 2.18 KiB | 2.18 MiB/s, done.
+controlplane ~ ➜  cd BookCRD
+```
+- Check If there are any changes. I hope not.
+```
+controlplane BookCRD on  main via 🐹 v1.18 ➜  git status
+On branch main
+Your branch is up to date with 'origin/main'.
+nothing to commit, working tree clean
+```
+-  Initializes a Kubernetes project using the Kubebuilder framework and sets the domain for your project to "genesis.xyz.com." This domain typically represents the root domain for your Kubernetes Custom Resource Definitions (CRDs) and can help identify your custom resources in a cluster.
+```
+controlplane CRD on  main via 🐹 v1.18 ➜  kubebuilder init --domain genesis.xyz.com
+Writing kustomize manifests for you to edit...
+Writing scaffold for you to edit...
+Get controller runtime:
+$ go get sigs.k8s.io/controller-runtime@v0.11.2
+......
+go: downloading github.com/nxadm/tail v1.4.8
+go: downloading gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7
+go: downloading github.com/cespare/xxhash v1.1.0
+Next: define a resource with:
+$ kubebuilder create api
+```
+- Note the KubeBuilder Version.
+```
+controlplane CRD on  main [!?] via 🐹 v1.18 ➜  kubebuilder version
+main.version{KubeBuilderVersion:"3.4.0", KubernetesVendor:"1.23.5", GitCommit:"75241ab9ff9457de77e902645792cee41ba29fed", BuildDate:"2022-04-28T17:09:31Z", GoOs:"linux", GoArch:"amd64"}
+```
+- You will notice the changes after applying 'git status'. Move these changes to staging area using 'git add .' and then commit. Later Push the committed changes.
