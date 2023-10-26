@@ -181,3 +181,41 @@ controlplane BookCRD on  main [⇡] via 🐹 v1.18 ➜  make manifests
 controlplane BookCRD on  main [?] via 🐹 v1.18 ➜  ls config/crd/bases
 comp.genesis.xyz.com_books.yaml
 ```
+## Apply The CRDs and Create a Custom Resource.
+- Apply the CRD as shown below.
+```
+controlplane BookCRD on  main via 🐹 v1.18 ➜  kubectl apply -f config/crd/bases/comp.genesis.xyz.com_books.yaml
+customresourcedefinition.apiextensions.k8s.io/books.comp.genesis.xyz.com created
+```
+- Write YAML for Book Kind.
+```
+controlplane BookCRD on  main via 🐹 v1.18 ➜  cat > book.yaml
+apiVersion: comp.genesis.xyz.com/v2
+kind: Book
+metadata:
+ name: computer-science
+spec:
+ foo: computers
+^C
+```
+- Get the Book Objects in advance.
+```
+controlplane BookCRD on  main [?] via 🐹 v1.18 ➜ kubectl get books
+No resources found in default namespace.
+```
+- Apply the book.yaml
+```
+controlplane BookCRD on  main [?] via 🐹 v1.18 ➜  kubectl apply -f book.yaml 
+book.comp.genesis.xyz.com/computer-science created
+```
+- Get the Book Objects
+```
+controlplane BookCRD on  main [?] via 🐹 v1.18 ➜  kubectl get books
+NAME               AGE
+computer-science   7s
+```
+- Book Controller is located in controllers folder.
+```
+controlplane BookCRD on  main [?] via 🐹 v1.18 ➜  ls controllers
+book_controller.go  suite_test.go
+```
